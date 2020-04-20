@@ -28,8 +28,10 @@ class Todo{
       _priority = newPriority;
     }
   }
-  set date (String newDate) {
-    _date = newDate;
+  set date(String newDate) {
+    if(newDate == _date) {
+      _date = newDate;
+    }
   }
 
   Map <String, dynamic> toMap(){
@@ -49,6 +51,6 @@ class Todo{
     this._title = o["title"];
     this._description = o["description"];
     this.priority = o["priority"];
-    this._date = o["date"];
+    this._date = o["date"]; 
   }
 }
