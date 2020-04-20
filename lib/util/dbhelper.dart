@@ -1,4 +1,4 @@
-import 'package:sqflite/sqflite.dart' as sqflite;
+// import 'package:sqflite/sqflite.dart' as sqflite;
 import 'dart:async';
 import 'dart:core';
 import 'dart:io';
@@ -30,6 +30,8 @@ class DbHelper {
     }
     return _db;
   }
+
+  get sqflite => null;
 
   Future<Database> initializeDb() async {
     Directory dir = await getApplicationDocumentsDirectory();
