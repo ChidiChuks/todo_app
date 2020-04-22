@@ -4,7 +4,7 @@ import 'dart:core';
 import 'dart:io';
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
-import 'package:sqflite/sqlite_api.dart';
+// import 'package:sqflite/sqlite_api.dart';
 import 'package:todo_app/model/todo.dart';
 
 class DbHelper {
@@ -31,7 +31,7 @@ class DbHelper {
     return _db;
   }
 
-  get sqflite => null;
+  // get sqflite => null;
 
   Future<Database> initializeDb() async {
     Directory dir = await getApplicationDocumentsDirectory();
@@ -59,10 +59,10 @@ class DbHelper {
   }
 
   Future<int> getCount() async {
+    // database connection
     Database db = await this.db;
-    var result = sqflite.firstIntValue(
-      await db.rawQuery("select count (*) from $tblTodo")
-    );
+    var dat = await db.rawQuery("select count (*) from $tblTodo");
+    var result = Sqflite.firstIntValue(dat);
     return result;
   }
 
