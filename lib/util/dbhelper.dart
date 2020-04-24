@@ -9,6 +9,7 @@ import 'package:todo_app/model/todo.dart';
 
 class DbHelper {
   static final DbHelper _dbHelper = DbHelper._internal();
+  
   String tblTodo = "todo";
   String colId = "id";
   String colTitle = "title";
@@ -61,8 +62,8 @@ class DbHelper {
   Future<int> getCount() async {
     // database connection
     Database db = await this.db;
-    var dat = await db.rawQuery("select count (*) from $tblTodo");
-    var result = Sqflite.firstIntValue(dat);
+    var result = Sqflite.firstIntValue(await db.rawQuery("select count (*) from $tblTodo")
+    );
     return result;
   }
 
