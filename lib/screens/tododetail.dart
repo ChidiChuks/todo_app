@@ -26,7 +26,6 @@ class TodoDetail extends StatefulWidget {
 class _TodoDetailState extends State<TodoDetail> {
   Todo todo;
   final _priorities = ["High", "Medium", "Low"];
-  String _priority = "low";
   TextEditingController titleController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
   @override
@@ -160,7 +159,6 @@ class _TodoDetailState extends State<TodoDetail> {
         break;
     }
     setState(() {
-      _priority = value;
     });
   }
 
